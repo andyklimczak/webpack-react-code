@@ -42,7 +42,7 @@ export default class App extends React.Component {
     NoteActions.create({task: 'New task'});
   };
 
-  editNote(id, task) {a
+  editNote(id, task) {
     NoteActions.update({id, task});
   };
 }
