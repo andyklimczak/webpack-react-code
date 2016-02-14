@@ -77,3 +77,13 @@ export default class Lane extends React.Component {
     NoteActions.update({id, editing: true});
   }
 }
+
+Lane.Header = class LaneHeader extends React.Component {
+
+}
+
+Lane.Notes = class LaneNotes extends React.Component {
+
+}
+
+export default Lane;
