@@ -41,6 +41,22 @@ class LaneStore {
     });
     this.setState({lanes});
   }
+
+  update(updatedLane) {
+    const lanes = this.lanes.map(lane => {
+      if(lane.id === updatedLane.id) {
+        return Object.assign({}, lane, updatedLane);
+      }
+      return lane;
+    });
+    this.setState({lanes});
+  }
+
+  delete(id) {
+    this.setState({
+      lanes: this.lanes.filter(lane => lane.id !== id)
+    });
+  }
 }
 
 export default alt.createStore(LaneStore, 'LaneStore');

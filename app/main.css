@@ -29,12 +29,12 @@ body {
   transition: .6s;
 }
 
-.note .task {
+.note .value {
   /* force to use inline-block so that it gets minimum height */
   display: inline-block;
 }
 
-.note .delete-note {
+.note .delete {
   float: right;
 
   padding: 0;
@@ -46,6 +46,6 @@ body {
 
   visibility: hidden;
 }
-.note:hover .delete-note {
+.note:hover .delete {
   visibility: visible;
 }
