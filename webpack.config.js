@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const pkg = require('./package.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
@@ -88,6 +89,7 @@ if(TARGET === 'build') {
       chunkFileName: '[chunkhash].js'
     },
     plugins: [
+      new CleanPlugin([PATHS.build]),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
