@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const pkg = require('./package.json');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
@@ -23,6 +24,14 @@ const common = {
     path: PATHS.build,
     filename: '[name].js'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'node_modules/html-webpack-template/index.ejs',
+      title: 'Kanban app',
+      appMountId: 'app',
+      inject: false
+    })
+  ],
   module: {
     loaders: [
       {
@@ -43,7 +52,6 @@ if(TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
     devtool: 'eval-source-map',
     devServer: {
-      contentBase: PATHS.build,
 
       historyApiFallback: true,
       hot: true,
@@ -90,7 +98,7 @@ if(TARGET === 'build') {
       }),
       new webpack.optimize.CommonsChunkPlugin({
         names: ['vendor', 'manifest']
-      })
+      }),
     ]
   });
 }
