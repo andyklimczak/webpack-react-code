@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "stats": "webpack --profile --json > stats.json"
+    "stats": "webpack --profile --json > stats.json",
+    "test": "karma start",
+    "tdd": "karma start --auto-watch --no-single-run"
   },
   "keywords": [
     "webpack",
@@ -26,7 +28,19 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.8.2",
     "html-webpack-template": "^4.0.0",
+    "isparta-instrumenter-loader": "^1.0.0",
+    "karma": "^0.13.21",
+    "karma-coverage": "^0.5.3",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.24",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
     "npm-install-webpack-plugin": "^2.0.2",
+    "phantomjs-polyfill": "0.0.1",
+    "phantomjs-prebuilt": "^2.1.4",
+    "react-addons-test-utils": "^0.14.7",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1",
