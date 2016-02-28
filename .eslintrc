@@ -4,6 +4,7 @@
   "env": {
     "browser": true,
     "node": true,
+    "mocha": true
   },
   "plugins": [
     "react"
@@ -18,7 +19,7 @@
     "quotes": [2, "single"],
     "jsx-quotes": 1,
     "react/jsx-no-undef": 1,
-    "react/jsx-uses/react": 1,
+    "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1
   }
 }
