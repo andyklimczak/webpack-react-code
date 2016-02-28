@@ -5,6 +5,7 @@ const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const stylelint = require('stylelint');
 
 const pkg = require('./package.json');
 
@@ -35,6 +36,11 @@ const common = {
         test: /\.jsx?$/,
         loaders: ['eslint'],
         include: PATHS.app
+      },
+      {
+        test: /\.css$/,
+        loaders: ['postcss'],
+        include: PATHS.app
       }
     ],
     loaders: [
@@ -44,6 +50,13 @@ const common = {
         include: PATHS.app
       }
     ]
+  },
+  postcss: function() {
+    return [stylelint({
+      rules: {
+        'color-hex-case': 'lower'
+      }
+    })];
   },
   plugins: [
     new HtmlWebpackPlugin({
